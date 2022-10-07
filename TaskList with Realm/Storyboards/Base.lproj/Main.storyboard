@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ki5-Vd-VRm">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -28,6 +29,9 @@
                                     <size key="contentOffset" width="0.0" height="-1"/>
                                 </segment>
                             </segments>
+                            <connections>
+                                <action selector="segmentChoosed:" destination="Q71-pB-aSI" eventType="valueChanged" id="aZe-KC-rCg"/>
+                            </connections>
                         </segmentedControl>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TaskListCell" textLabel="hhM-xp-1uV" detailTextLabel="LIZ-dy-ZVL" style="IBUITableViewCellStyleValue1" id="Q3Q-yh-mk1">
@@ -69,10 +73,10 @@
             </objects>
             <point key="canvasLocation" x="731" y="-180"/>
         </scene>
-        <!--Tasks View Controller-->
+        <!--Task View Controller-->
         <scene sceneID="G4y-8m-K33">
             <objects>
-                <tableViewController id="ThP-5Z-TVG" customClass="TasksViewController" customModule="TaskList_with_Realm" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="ThP-5Z-TVG" customClass="TaskViewController" customModule="TaskList_with_Realm" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Kur-7d-5wG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
