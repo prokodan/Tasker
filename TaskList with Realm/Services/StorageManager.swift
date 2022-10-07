@@ -46,6 +46,32 @@ class StorageManager {
         }
     }
     
+    //MARK: - Task
+    
+    func save(_ task: Task, to taskList: TaskList) {
+        write {
+            taskList.tasks.append(task)
+        }
+    }
+    
+    func delete(_ task: Task) {
+        write {
+            realm.delete(task)
+        }
+    }
+    
+    func edit(_ task: Task, toNewName name: String, toNewNote note: String ) {
+        write {
+            task.name = name
+            task.note = note
+        }
+    }
+    
+    func done(_ task: Task) {
+        write {
+            task.isComplete.toggle()
+        }
+    }
     
     
     

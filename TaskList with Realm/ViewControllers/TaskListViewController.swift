@@ -10,16 +10,15 @@ import RealmSwift
 
 class TaskListViewController: UITableViewController {
 
+    //MARK: - Public Properties
     var taskLists: Results<TaskList>!
     
     //MARK: - ViewMethods
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         taskLists = StorageManager.shared.realm.objects(TaskList.self)
         createTempData()
         setupBarButtonItems()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -28,7 +27,6 @@ class TaskListViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         taskLists.count
     }
@@ -42,7 +40,6 @@ class TaskListViewController: UITableViewController {
     }
     
     //MARK: - TableView EditMethod
-
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let tasklist = taskLists[indexPath.row]
         
@@ -70,14 +67,12 @@ class TaskListViewController: UITableViewController {
     }
     
     //MARK: - Private Methods
-    
     private func setupBarButtonItems() {
         let addButton = UIBarButtonItem(
             barButtonSystemItem: .add,
             target: self,
             action: #selector(addButtonPressed)
         )
-        
         navigationItem.rightBarButtonItem = addButton
         navigationItem.leftBarButtonItem = editButtonItem
     }
@@ -90,8 +85,6 @@ class TaskListViewController: UITableViewController {
         DataManager.shared.createTempData {
             self.tableView.reloadData()
         }
-            
-
     }
     
     @IBAction func segmentChoosed(_ sender: UISegmentedControl) {
@@ -101,7 +94,6 @@ class TaskListViewController: UITableViewController {
         tableView.reloadData()
     }
     
-
     //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let indexPath = tableView.indexPathForSelectedRow else {return}
@@ -109,14 +101,15 @@ class TaskListViewController: UITableViewController {
         let taskList = taskLists[indexPath.row]
         tasksVC.taskList = taskList
     }
-    
 }
-
+//MARK: - Extension TaskListViewController
 extension TaskListViewController {
-    
+    /// Showing alert for new or update taskList event depending on an optional  parameters
+    /// - Parameters:
+    ///   - taskList: in case of no taskList value new task alertController will be shown
+    ///   - completion: in case of no completion value new task alertController will be shown
     private func showAlert(with taskList: TaskList? = nil, completion: (() -> Void)? = nil) {
         let title = taskList != nil ? "Edit List" : "New List"
-        
         let alert = UIAlertController.createAlert(withTitle: title, andMessage: "Set title for new task list")
         
         alert.action(with: taskList) { newValue in

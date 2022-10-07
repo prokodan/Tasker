@@ -11,7 +11,6 @@ struct K {
     
     enum Tasks: String {
         case cell = "TaskListCell"
+        case taskCell = "TaskCell"
     }
-    
-    
 }
