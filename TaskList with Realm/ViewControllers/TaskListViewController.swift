@@ -18,6 +18,7 @@ class TaskListViewController: UITableViewController {
         super.viewDidLoad()
         taskLists = StorageManager.shared.realm.objects(TaskList.self)
         createTempData()
+        setupNavBarappearance()
         setupBarButtonItems()
     }
     
@@ -67,8 +68,21 @@ class TaskListViewController: UITableViewController {
     }
     
     //MARK: - Private Methods
+    private func setupNavBarappearance() {
+        let navBarAppearance = UINavigationBarAppearance()
+        navBarAppearance.configureWithOpaqueBackground()
+        navBarAppearance.backgroundColor = UIColor(named: "ColorNavigationController")
+        
+        navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor(.black)]
+        navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor(.black)]
+        navigationController?.navigationBar.tintColor = .black
+        
+        navigationController?.navigationBar.standardAppearance = navBarAppearance
+        navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
+    }
+    
     private func setupBarButtonItems() {
-        let addButton = UIBarButtonItem(
+            let addButton = UIBarButtonItem(
             barButtonSystemItem: .add,
             target: self,
             action: #selector(addButtonPressed)

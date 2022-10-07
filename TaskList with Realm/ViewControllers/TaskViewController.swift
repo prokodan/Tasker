@@ -23,6 +23,7 @@ class TaskViewController: UITableViewController {
         title = taskList.name
         fillTaskArrays()
         setupBarButtonItems()
+        setupNavBarappearance()
     }
     
     // MARK: - Table view data source
@@ -110,6 +111,11 @@ class TaskViewController: UITableViewController {
     }
     
     //MARK: - Private Methods
+    private func setupNavBarappearance() {
+        let inset = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
+        self.tableView.contentInset = inset
+    }
+    
     private func fillTaskArrays() {
         currentTasks = taskList.tasks.filter("isComplete = false")
         completedTasks = taskList.tasks.filter("isComplete = true")
