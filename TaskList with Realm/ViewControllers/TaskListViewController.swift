@@ -76,6 +76,7 @@ class TaskListViewController: UITableViewController {
         navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor(.black)]
         navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor(.black)]
         navigationController?.navigationBar.tintColor = .black
+        navigationController?.navigationItem.hidesBackButton = true
         
         navigationController?.navigationBar.standardAppearance = navBarAppearance
         navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance

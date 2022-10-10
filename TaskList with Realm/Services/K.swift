@@ -9,6 +9,8 @@ import Foundation
 
 struct K {
     
+    static let firstSegue = "goToTaskLists"
+    
     enum Tasks: String {
         case cell = "TaskListCell"
         case taskCell = "TaskCell"

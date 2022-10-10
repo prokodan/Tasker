@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ki5-Vd-VRm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="V3x-ZA-ttg">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -71,7 +72,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M2S-0l-eUO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="731" y="-180"/>
+            <point key="canvasLocation" x="1640.5797101449277" y="-180.13392857142856"/>
         </scene>
         <!--Task View Controller-->
         <scene sceneID="G4y-8m-K33">
@@ -117,23 +118,65 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d1U-6M-TeY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1622" y="-180"/>
+            <point key="canvasLocation" x="2531.8840579710145" y="-180.13392857142856"/>
+        </scene>
+        <!--Launch View Controller-->
+        <scene sceneID="gC3-30-TRO">
+            <objects>
+                <viewController id="MGq-H9-ZEj" customClass="LaunchViewController" customModule="TaskList_with_Realm" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Sd8-ib-PVc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3K7-W4-40k" customClass="AnimationView" customModule="Lottie">
+                                <rect key="frame" x="20" y="80" width="374" height="651"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vEY-8f-Pwb"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vEY-8f-Pwb" firstAttribute="bottom" secondItem="3K7-W4-40k" secondAttribute="bottom" constant="131" id="3xF-55-RB5">
+                                <variation key="heightClass=compact-widthClass=regular" constant="40"/>
+                            </constraint>
+                            <constraint firstItem="vEY-8f-Pwb" firstAttribute="trailing" secondItem="3K7-W4-40k" secondAttribute="trailing" constant="20" id="D6t-gy-7RW">
+                                <variation key="heightClass=compact-widthClass=regular" constant="40"/>
+                            </constraint>
+                            <constraint firstItem="3K7-W4-40k" firstAttribute="top" secondItem="Sd8-ib-PVc" secondAttribute="top" constant="80" id="k3l-UM-RLk">
+                                <variation key="heightClass=compact-widthClass=regular" constant="40"/>
+                            </constraint>
+                            <constraint firstItem="3K7-W4-40k" firstAttribute="leading" secondItem="vEY-8f-Pwb" secondAttribute="leading" constant="20" id="nsk-lo-6d2">
+                                <variation key="heightClass=compact-widthClass=regular" constant="40"/>
+                            </constraint>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ufs-6j-zgl"/>
+                    <connections>
+                        <outlet property="animationView" destination="3K7-W4-40k" id="oBc-8h-PDl"/>
+                        <segue destination="Q71-pB-aSI" kind="show" identifier="goToTaskLists" id="koC-4h-zby"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5rG-ey-T3k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="824.63768115942037" y="-180.13392857142856"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="XZz-6R-NNl">
+        <scene sceneID="ZiO-CA-Aod">
             <objects>
-                <navigationController id="ki5-Vd-VRm" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="MP2-gB-Yae">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="V3x-ZA-ttg" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Ked-jg-phf">
                         <rect key="frame" x="0.0" y="48" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Q71-pB-aSI" kind="relationship" relationship="rootViewController" id="dKv-fP-Iq3"/>
+                        <segue destination="MGq-H9-ZEj" kind="relationship" relationship="rootViewController" id="RCr-kD-Swr"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EW7-Dm-AvD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OoC-1w-dy0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-160" y="-180"/>
+            <point key="canvasLocation" x="5.7971014492753632" y="-180.13392857142856"/>
         </scene>
     </scenes>
     <resources>
