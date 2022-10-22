@@ -9,14 +9,16 @@ import UIKit
 import Lottie
 
 class LaunchViewController: UIViewController {
-
+//MARK: - IBOutlets
     @IBOutlet var animationView: AnimationView!
     
+    //MARK: - VC Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         animate()
     }
 
+    //MARK: - Private Methods
     private func animate() {
         let taskAnimation = Animation.named("taskman")
         animationView.animation = taskAnimation
