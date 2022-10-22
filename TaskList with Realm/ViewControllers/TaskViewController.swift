@@ -17,7 +17,7 @@ class TaskViewController: UITableViewController {
     private var currentTasks: Results<Task>!
     private var completedTasks: Results<Task>!
     
-    //MARK: - ViewDidLoad
+    //MARK: - VC Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         title = taskList.name

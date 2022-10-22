@@ -13,7 +13,7 @@ class TaskListViewController: UITableViewController {
     //MARK: - Public Properties
     var taskLists: Results<TaskList>!
     
-    //MARK: - ViewMethods
+    //MARK: - VC Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         taskLists = StorageManager.shared.realm.objects(TaskList.self)
@@ -36,7 +36,6 @@ class TaskListViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.Tasks.cell.rawValue, for: indexPath)
         let taskList = taskLists[indexPath.row]
         cell.configure(with: taskList)
-        
         return cell
     }
     
@@ -102,6 +101,7 @@ class TaskListViewController: UITableViewController {
         }
     }
     
+    //MARK: - IBActions
     @IBAction func segmentChoosed(_ sender: UISegmentedControl) {
         taskLists = sender.selectedSegmentIndex == 0
         ? taskLists.sorted(byKeyPath: "date")

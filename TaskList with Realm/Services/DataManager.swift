@@ -14,7 +14,6 @@ class DataManager {
     private init() {}
 
     func createTempData(completion: @escaping() -> Void) {
-//        UserDefaults.standard.set(true, forKey: "done")
 
         if !UserDefaults.standard.bool(forKey: "done") {
             let shoppingList = TaskList()
@@ -23,10 +22,7 @@ class DataManager {
             let moviesList = TaskList(
                 value: ["Movies List",
                         Date(),
-                        [
-                            ["Terminator"],
-                            ["Inception", "Watch with...", Date(), true]
-                        ]
+                        [ ["Terminator"], ["Inception", "Watch with...", Date(), true] ]
                        ]
             )
 

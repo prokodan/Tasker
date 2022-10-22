@@ -59,8 +59,5 @@ extension UIAlertController {
             textField.placeholder = "Note"
             textField.text = task?.note
         }
-        
-    }
-    
-    
+    }  
 }

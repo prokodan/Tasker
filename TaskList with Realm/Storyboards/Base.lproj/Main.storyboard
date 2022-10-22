@@ -179,6 +179,9 @@
             <point key="canvasLocation" x="5.7971014492753632" y="-180.13392857142856"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="3K7-W4-40k"/>
+    </designables>
     <resources>
         <image name="abc" catalog="system" width="128" height="50"/>
         <image name="calendar" catalog="system" width="128" height="107"/>
